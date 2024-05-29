@@ -7,6 +7,16 @@ import { Navbar } from "components/nav";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   description: process.env.NEXT_PUBLIC_META_DESCRIPTION!,
+  themeColor: [
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: "#100A01",
+    },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: "#FFFBF4",
+    },
+  ],
   title: {
     default: process.env.NEXT_PUBLIC_META_TITLE!,
     template: `%s | ${process.env.NEXT_PUBLIC_META_TITLE!}`,
