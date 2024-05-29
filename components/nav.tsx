@@ -1,16 +1,13 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-const navItems = {
-  '/': {
-    name: 'home',
+const navLinks = {
+  contributions: {
+    path: "/",
   },
-  '/blog': {
-    name: 'blog',
+  about: {
+    path: "/about",
   },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
-  },
-}
+};
 
 export function Navbar() {
   return (
@@ -21,20 +18,20 @@ export function Navbar() {
           id="nav"
         >
           <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
+            {Object.entries(navLinks).map(([name, { path }]) => {
               return (
                 <Link
-                  key={path}
+                  key={name}
                   href={path}
                   className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
                 >
                   {name}
                 </Link>
-              )
+              );
             })}
           </div>
         </nav>
       </div>
     </aside>
-  )
+  );
 }
