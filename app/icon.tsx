@@ -6,41 +6,32 @@ export const size = { width: 32, height: 32 };
 export default function Icon() {
   return new ImageResponse(
     (
-      <div
-        tw="flex flex-col justify-center px-10 w-full h-full text-[#FFFBF4]"
+      <span
         style={{
-          backgroundImage: "linear-gradient(to bottom, #1F1402, #100A01)",
+          width: "100%",
+          height: "100%",
+          fontSize: 24,
+          fontWeight: 900,
+          display: "flex",
+          justifyContent: "center",
         }}
       >
-        <strong tw="text-[64px]">
-          sou
-          <span
-            style={{
-              fontWeight: "medium",
-            }}
-          >
-            <span
-              style={{
-                letterSpacing: "-.2em",
-                color: "#6366F1",
-              }}
-            >
-              j
-            </span>
-            <span
-              style={{
-                color: "#F59E0B",
-              }}
-            >
-              v
-            </span>
-          </span>
-          nunes
-        </strong>
-        <p tw="text-[40px] text-[#FFFBF4]/60">
-          Frontend Engineer and Product Designer
-        </p>
-      </div>
+        <span
+          style={{
+            letterSpacing: "-.236em",
+            color: "#6366F1",
+          }}
+        >
+          j
+        </span>
+        <span
+          style={{
+            color: "#F59E0B",
+          }}
+        >
+          v
+        </span>
+      </span>
     ),
     {
       ...size,

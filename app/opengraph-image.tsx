@@ -10,7 +10,12 @@ export const size = {
 export default function Image() {
   return new ImageResponse(
     (
-      <div tw="flex flex-col justify-center px-10 w-full h-full bg-[#100A01] text-[#FFFBF4]">
+      <div
+        tw="flex flex-col justify-center px-10 w-full h-full text-[#FFFBF4]"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, #1F1402, #100A01)",
+        }}
+      >
         <strong tw="text-[64px]">
           sou
           <span
