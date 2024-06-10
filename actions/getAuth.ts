@@ -1,6 +1,7 @@
-export default async function getClient() {
+export default async function getAuth() {
   const { google } = await import("googleapis");
-  const googleClient = await google.auth.getClient({
+
+  const client = await google.auth.getClient({
     projectId: process.env.GAPI_PROJECT_ID,
     credentials: {
       type: "service_account",
@@ -13,5 +14,8 @@ export default async function getClient() {
     scopes: [process.env.GAPI_SHEET_SCOPE ?? ""],
   });
 
-  return googleClient;
+  return {
+    api: google,
+    client,
+  };
 }
