@@ -1,8 +1,11 @@
 export interface RawDataProps {
   id?: string;
 }
+export type RawData = string[][] | null | undefined;
 
-export default async function getRawData(props: RawDataProps) {
+export default async function getRawData(
+  props: RawDataProps,
+): Promise<RawData> {
   const { default: getAuth } = await import("./getAuth");
 
   const auth = await getAuth();
@@ -18,5 +21,3 @@ export default async function getRawData(props: RawDataProps) {
 
   return googleSheet.data.values;
 }
-
-export type RawData = Awaited<ReturnType<typeof getRawData>>;
