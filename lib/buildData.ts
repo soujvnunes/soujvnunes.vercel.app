@@ -1,7 +1,7 @@
-import { type Data } from "actions/getData";
+import { type RawData } from "actions/getRawData";
 
 export default function buildData<O extends object = object>(
-  params: Data,
+  params: RawData,
 ): O[] {
   if (!Array.isArray(params)) return [];
 
@@ -25,6 +25,6 @@ export default function buildData<O extends object = object>(
         };
       }, {} as O),
     ],
-    [],
+    [] as O[],
   );
 }
