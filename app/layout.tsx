@@ -2,7 +2,6 @@ import "./global.css";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Navbar } from "components/nav";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -38,22 +37,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
-    <html
-      lang="en"
-      className="bg-white text-black dark:bg-black dark:text-white"
-    >
-      <body className="mx-4 mt-8 max-w-xl antialiased lg:mx-auto">
-        <main className="mt-6 flex min-w-0 flex-auto flex-col px-2 md:px-0">
-          <Navbar />
+    <html lang="en" className="bg-background text-foreground h-full">
+      <body className="mx-4 mt-8 h-full max-w-xl antialiased lg:mx-auto">
+        <main className="mt-6 flex h-full min-w-0 flex-auto flex-col px-2 md:px-0">
           {children}
           <Analytics />
           <SpeedInsights />
+          <div className="absolute inset-0 -z-10">
+            <div className="from-accent/20 to-main/20 h-full w-full bg-gradient-to-r">
+              <div className="from-background h-full w-full bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] lg:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]" />
+            </div>
+          </div>
         </main>
       </body>
     </html>
