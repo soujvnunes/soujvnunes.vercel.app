@@ -1,1 +1,58 @@
 @import "tailwindcss";
+@import "./sofia-pro.css";
+
+@theme {
+  /* 1. TOKENS */
+  --font-family-sans: "sofia-pro";
+
+  --color-zinc-200: #e4e4e7;
+
+  --color-slate-50: #f8fafc;
+
+  --color-sky-600: #3782cd;
+
+  --color-blue-600: #2e76ff;
+
+  --color-amber-50: #fffbf4;
+  --color-amber-900: #1f1402;
+  --color-amber-950: #100a01;
+
+  /* 2. ALIASES */
+  --color-accent: var(--color-indigo-500);
+  --color-main: var(--color-amber-500);
+  --color-foreground: var(--color-amber-50);
+  --color-background: var(--color-amber-950);
+
+  /* 2.1 BRAND */
+  --color-bepro: #4250e4;
+
+  --spacing-xs: var(--spacing-8);
+  --width-xs: var(--spacing-8);
+}
+
+@layer components {
+  .Button {
+    @apply h-xs inline-flex min-w-xs items-center px-2;
+  }
+  .Icon {
+    @apply inline-flex fill-current;
+  }
+  .IconMd {
+    @apply h-6 w-6;
+  }
+}
+
+@layer utilities {
+  .text-behance {
+    @apply text-blue-600;
+  }
+  .text-linkedin {
+    @apply text-sky-600;
+  }
+  .text-github {
+    @apply text-slate-50;
+  }
+  .text-medium {
+    @apply text-zinc-200;
+  }
+}
