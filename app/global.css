@@ -1,44 +1,20 @@
-@import "tailwindcss";
-@import "./sofia-pro.css";
-
-@theme {
-  /* 1. TOKENS */
-  --font-family-sans: "sofia-pro";
-
-  --color-zinc-200: #e4e4e7;
-
-  --color-slate-50: #f8fafc;
-
-  --color-sky-600: #3782cd;
-
-  --color-blue-600: #2e76ff;
-
-  --color-amber-50: #fffbf4;
-  --color-amber-900: #1f1402;
-  --color-amber-950: #100a01;
-
-  /* 2. ALIASES */
-  --color-accent: var(--color-indigo-500);
-  --color-main: var(--color-amber-500);
-  --color-foreground: var(--color-amber-50);
-  --color-background: var(--color-amber-950);
-
-  /* 2.1 BRAND */
-  --color-bepro: #4250e4;
-
-  --spacing-xs: var(--spacing-8);
-  --width-xs: var(--spacing-8);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(https://p.typekit.net/p.css?s=1&k=bwb4cjf&ht=tk&f=24539.24540.24547.24548&a=12465986&app=typekit&e=css);
 
 @layer components {
   .Button {
-    @apply h-xs inline-flex min-w-xs items-center px-2;
+    @apply inline-flex items-center;
+  }
+  .ButtonMd {
+    @apply h-sm px-xs min-w-sm;
   }
   .Icon {
     @apply inline-flex fill-current;
   }
   .IconMd {
-    @apply h-6 w-6;
+    @apply h-xs w-xs;
   }
 }
 
@@ -54,5 +30,64 @@
   }
   .text-medium {
     @apply text-zinc-200;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/5d97ff/00000000000000007735f999/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/5d97ff/00000000000000007735f999/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/5d97ff/00000000000000007735f999/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 800;
+    font-stretch: normal;
+  }
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/66e20c/00000000000000007735f993/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/66e20c/00000000000000007735f993/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/66e20c/00000000000000007735f993/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 800;
+    font-stretch: normal;
+  }
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+  }
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/c09857/00000000000000007735f98c/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/c09857/00000000000000007735f98c/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/c09857/00000000000000007735f98c/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: normal;
   }
 }
