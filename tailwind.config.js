@@ -3,6 +3,7 @@ const dimension = {
   2: "0.125rem",
   4: "0.25rem",
   8: "0.5rem",
+  12: "0.75rem",
   16: "1rem",
   24: "1.5rem",
   32: "2rem",
@@ -10,6 +11,13 @@ const dimension = {
   64: "4rem",
   104: "6.5rem",
   168: "10.5rem",
+};
+const fontSize = {
+  xs: [dimension[12], dimension[16]],
+  sm: [dimension[16], dimension[16]],
+  md: [dimension[16], dimension[24]],
+  lg: [dimension[24], dimension[24]],
+  xl: [dimension[40], dimension[40]],
 };
 const sizing = {
   x2s: dimension[16],
@@ -40,6 +48,14 @@ module.exports = {
   content: ["./app/**/*.{tsx,mdx}", "./components/**/*.{tsx,mdx}"],
   theme: {
     extend: {
+      fontSize,
+      height: sizing,
+      width: sizing,
+      minWidth: sizing,
+      padding: spacing,
+      margin: spacing,
+      borderRadius: radius,
+      space: spacing,
       fontFamily: {
         sans: ["sofia-pro", ...defaultTheme.fontFamily.sans],
       },
@@ -86,13 +102,6 @@ module.exports = {
           500: "#FF4785",
         },
       },
-      height: sizing,
-      width: sizing,
-      minWidth: sizing,
-      padding: spacing,
-      margin: spacing,
-      borderRadius: radius,
-      space: spacing,
     },
   },
   plugins: [],
