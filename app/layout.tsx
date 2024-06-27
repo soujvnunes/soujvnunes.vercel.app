@@ -39,9 +39,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: React.PropsWithChildren) {
   return (
-    <html lang="en" className="bg-background text-foreground h-full">
-      <body className="mx-4 mt-8 h-full max-w-xl antialiased lg:mx-auto">
-        <main className="mt-6 flex h-full min-w-0 flex-auto flex-col px-2 md:px-0">
+    <html
+      lang="en"
+      className="TypographyPrimary h-full bg-amber-950 antialiased"
+    >
+      <body className="h-full">
+        <main className="flex h-full">
           {children}
           <Analytics />
           <SpeedInsights />
