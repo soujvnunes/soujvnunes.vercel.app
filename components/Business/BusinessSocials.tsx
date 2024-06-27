@@ -14,24 +14,30 @@ export default async function BusinessSocials() {
   });
 
   return (
-    <aside className="flex">
-      {socials.map((social) => (
-        <Link
-          target="_blank"
-          rel="noreferrer noopener"
-          key={social.name}
-          href={social.href}
-          className={twMerge(
-            "Button",
-            social.name === "Behance" && "text-behance",
-            social.name === "LinkedIn" && "text-linkedin",
-            social.name === "GitHub" && "text-github",
-            social.name === "Medium" && "text-medium",
-          )}
-        >
-          <Icon name={social.name} />
-        </Link>
-      ))}
+    <aside className="flex space-x-sm">
+      {socials.map((social) => {
+        const title = `Visit my ${social.name} profile`;
+
+        return (
+          <Link
+            target="_blank"
+            rel="noreferrer noopener"
+            key={social.name}
+            href={social.href}
+            aria-label={title}
+            title={title}
+            className={twMerge(
+              "Button ButtonMd",
+              social.name === "Behance" && "ButtonBehance",
+              social.name === "LinkedIn" && "ButtonLinkedIn",
+              social.name === "GitHub" && "ButtonGitHub",
+              social.name === "Medium" && "ButtonMedium",
+            )}
+          >
+            <Icon name={social.name} />
+          </Link>
+        );
+      })}
     </aside>
   );
 }
