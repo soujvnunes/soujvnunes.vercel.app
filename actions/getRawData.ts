@@ -15,6 +15,7 @@ export default async function getRawData(
     version: "v4",
     auth,
   });
+
   const googleSheet = await googleSheets.spreadsheets.values.get({
     spreadsheetId: process.env.GAPI_SHEET_ID,
     range: props.id,
