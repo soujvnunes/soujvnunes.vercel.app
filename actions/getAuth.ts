@@ -3,7 +3,8 @@ import { google } from "googleapis";
 import formatNewLine from "lib/formatNewLine";
 
 async function getAuth() {
-  const privateKey = formatNewLine(process.env.GAPI_PRIVATE_KEY || "");
+  const privateKey = formatNewLine(process.env.GAPI_PRIVATE_KEY ?? "");
+
   const client = await google.auth.getClient({
     projectId: process.env.GAPI_PROJECT_ID,
     credentials: {
