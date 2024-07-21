@@ -1,150 +1,149 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-::selection {
-  background-color: #47a3f3;
-  color: #fefefe;
-}
-
-:root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
+@layer components {
+  /* TYPOGRAPHY */
+  /* Variants */
+  .TypographyFootnote {
+    @apply text-xs font-normal;
   }
-  html {
-    color-scheme: dark;
+  .TypographyCaption {
+    @apply text-xs font-bold uppercase;
+  }
+  .TypographyBody {
+    @apply text-md font-normal;
+  }
+  .TypographyHeading {
+    @apply text-md font-bold;
+  }
+  .TypographySubtitle {
+    @apply text-sm font-medium;
+  }
+  .TypographyTitle {
+    @apply text-lg font-bold;
+  }
+  .TypographyHeadline {
+    @apply text-xl font-bold;
+  }
+  /* Colors */
+  .TypographyBehance {
+    @apply text-blue-600;
+  }
+  .TypographyLinkedIn {
+    @apply text-sky-600;
+  }
+  .TypographyGitHub {
+    @apply text-slate-950 dark:text-slate-50;
+  }
+  .TypographyMedium {
+    @apply text-zinc-800 dark:text-zinc-200;
+  }
+  .TypographyMain {
+    @apply text-amber-500;
+  }
+  .TypographyPrimary {
+    @apply text-amber-50;
+  }
+  .TypographySecondary {
+    @apply text-amber-50/60;
+  }
+  /* BUTTON BASE */
+  /* Root */
+  .ButtonBase {
+    @apply TypographyCaption inline-flex items-center;
+  }
+  /* BUTTON */
+  /* Root */
+  .Button {
+    @apply ButtonBase;
+  }
+  /* Sizes */
+  .ButtonMd {
+    @apply h-sm min-w-sm rounded-md px-sm;
+  }
+  /* Colors */
+  .ButtonBehance {
+    @apply TypographyBehance bg-blue-600/20 hover:bg-blue-600/40;
+  }
+  .ButtonLinkedIn {
+    @apply TypographyLinkedIn bg-sky-600/20 hover:bg-sky-600/40;
+  }
+  .ButtonGitHub {
+    @apply TypographyGitHub bg-slate-950/20 hover:bg-slate-950/40 dark:bg-slate-50/20 dark:hover:bg-slate-50/40;
+  }
+  .ButtonMedium {
+    @apply TypographyMedium bg-zinc-800/20 hover:bg-zinc-800/40 dark:bg-zinc-200/20 dark:hover:bg-zinc-200/40;
+  }
+  .ButtonMain {
+    @apply TypographyMain bg-amber-500/20 hover:bg-amber-500/40;
+  }
+  /* ICON */
+  /* Root */
+  .Icon {
+    @apply inline-flex fill-current;
+  }
+  /* Sizes */
+  .IconMd {
+    @apply h-xs w-xs;
   }
 }
 
-html {
-  min-width: 360px;
-}
-
-.prose .anchor {
-  @apply absolute invisible no-underline;
-
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
-}
-
-.anchor:hover {
-  @apply visible;
-}
-
-.prose a {
-  @apply underline transition-all decoration-neutral-400 dark:decoration-neutral-600 underline-offset-2 decoration-[0.1em];
-}
-
-.prose .anchor:after {
-  @apply text-neutral-300 dark:text-neutral-700;
-  content: '#';
-}
-
-.prose *:hover > .anchor {
-  @apply visible;
-}
-
-.prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900 py-2 px-3 text-sm;
-}
-
-.prose code {
-  @apply px-1 py-0.5 rounded-lg;
-}
-
-.prose pre code {
-  @apply p-0;
-  border: initial;
-  line-height: 1.5;
-}
-
-.prose code span {
-  @apply font-medium;
-}
-
-.prose img {
-  /* Don't apply styles to next/image */
-  @apply m-0;
-}
-
-.prose p {
-  @apply my-4 text-neutral-800 dark:text-neutral-200;
-}
-
-.prose h1 {
-  @apply text-4xl font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose h2 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose h3 {
-  @apply text-xl font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose h4 {
-  @apply text-lg font-medium tracking-tight mt-6 mb-2;
-}
-
-.prose strong {
-  @apply font-medium;
-}
-
-.prose ul {
-  @apply list-disc pl-6;
-}
-
-.prose ol {
-  @apply list-decimal pl-6;
-}
-
-.prose > :first-child {
-  /* Override removing top margin, causing layout shift */
-  margin-top: 1.25em !important;
-  margin-bottom: 1.25em !important;
-}
-
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-/* Remove Safari input shadow on mobile */
-input[type='text'],
-input[type='email'] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-table {
-  display: block;
-  max-width: fit-content;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-.title {
-  text-wrap: balance;
+@layer base {
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/5d97ff/00000000000000007735f999/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/5d97ff/00000000000000007735f999/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/5d97ff/00000000000000007735f999/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n8&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 800;
+    font-stretch: normal;
+  }
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/66e20c/00000000000000007735f993/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/66e20c/00000000000000007735f993/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/66e20c/00000000000000007735f993/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i8&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 800;
+    font-stretch: normal;
+  }
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/b718ff/00000000000000007735f98d/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    font-stretch: normal;
+  }
+  @font-face {
+    font-family: sofia-pro;
+    src:
+      url("https://use.typekit.net/af/c09857/00000000000000007735f98c/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+        format("woff2"),
+      url("https://use.typekit.net/af/c09857/00000000000000007735f98c/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+        format("woff"),
+      url("https://use.typekit.net/af/c09857/00000000000000007735f98c/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=i4&v=3")
+        format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+    font-stretch: normal;
+  }
 }
