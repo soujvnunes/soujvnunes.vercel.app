@@ -4,8 +4,12 @@ import getRawData, { type RawDataProps } from "./getRawData";
 export default async function getData<O extends object = object>(
   props: RawDataProps,
 ) {
-  const rawData = await getRawData(props);
-  const data = buildData<O>(rawData);
+  try {
+    const rawData = await getRawData(props);
+    const data = buildData<O>(rawData);
 
-  return data;
+    return data;
+  } catch (error) {
+    if (error instanceof Error) throw new Error(error.message);
+  }
 }
