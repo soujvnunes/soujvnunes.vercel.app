@@ -1,5 +1,4 @@
-import getIconSvg, { type Svgs } from "lib/getIconSvg";
-import { memo } from "react";
+import getSvg, { type Svgs } from "actions/getSvg";
 import { twMerge } from "tailwind-merge";
 
 interface IconProps extends React.ReactComponentProps {
@@ -7,7 +6,7 @@ interface IconProps extends React.ReactComponentProps {
   name: Svgs;
 }
 
-export default memo(async function Icon({
+export default async function Icon({
   name,
   className,
   size = "md",
@@ -15,7 +14,9 @@ export default memo(async function Icon({
   children,
   ...props
 }: IconProps) {
-  const Svg = await getIconSvg(name);
+  const Svg = await getSvg(name);
+
+  if (!Svg) return;
 
   return (
     <Svg
@@ -27,4 +28,4 @@ export default memo(async function Icon({
       {...props}
     />
   );
-});
+}
