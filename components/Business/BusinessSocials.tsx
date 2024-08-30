@@ -15,7 +15,7 @@ export default async function BusinessSocials() {
 
   return (
     <aside className="flex space-x-sm">
-      {socials.map((social) => {
+      {socials?.map((social) => {
         const title = `Visit my ${social.name} profile`;
 
         return (
