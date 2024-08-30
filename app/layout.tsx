@@ -2,6 +2,8 @@ import "./global.css";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Footer from "components/Footer";
+import Background from "components/Background";
 
 export const viewport: Viewport = {
   themeColor: [
@@ -43,17 +45,12 @@ export default function RootLayout({ children }: React.PropsWithChildren) {
       lang="en"
       className="TypographyPrimary h-full bg-amber-950 antialiased"
     >
-      <body className="h-full">
-        <main className="flex h-full">
-          {children}
-          <Analytics />
-          <SpeedInsights />
-          <div className="absolute inset-0 -z-10">
-            <div className="from-accent/20 to-main/20 h-full w-full bg-gradient-to-r">
-              <div className="from-background h-full w-full bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] lg:bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]" />
-            </div>
-          </div>
-        </main>
+      <body className="flex h-full flex-col">
+        <main className="m-auto">{children}</main>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
+        <Background />
       </body>
     </html>
   );
