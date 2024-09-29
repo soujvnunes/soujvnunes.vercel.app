@@ -1,9 +1,11 @@
 import { type RawData } from "actions/getRawData";
 
+type Data<O extends object = object> = Partial<O>;
+
 export default function buildData<O extends object = object>(
   params: RawData,
-): O[] {
-  if (!Array.isArray(params)) return [];
+): Data<O>[] | null {
+  if (!Array.isArray(params)) return null;
 
   const [keys, ...rows] = params;
 
@@ -18,13 +20,18 @@ export default function buildData<O extends object = object>(
           ...cells,
           [key]:
             value === ""
-              ? undefined
+              ? /**
+                 * Since a value could be undefined, I can't
+                 * predict which one'd actually be. So, I assert
+                 * each value as partial (Partial<O>)
+                 */
+                undefined
               : Number.isNaN(numericValue)
                 ? value
                 : numericValue,
         };
-      }, {} as O),
+      }, {} as Data<O>),
     ],
-    [] as O[],
+    [] as Data<O>[],
   );
 }
