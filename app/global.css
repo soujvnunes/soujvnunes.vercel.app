@@ -50,13 +50,12 @@
   }
   /* BUTTON BASE */
   /* Root */
-  .ButtonBase {
-    @apply TypographyCaption inline-flex items-center;
-  }
-  /* BUTTON */
-  /* Root */
   .Button {
-    @apply ButtonBase;
+    @apply TypographyCaption inline-flex items-center text-center;
+  }
+  /* Dimensions */
+  .ButtonFull {
+    @apply w-full justify-between;
   }
   /* Sizes */
   .ButtonMd {
@@ -86,6 +85,12 @@
   /* Sizes */
   .IconMd {
     @apply h-xs w-xs;
+  }
+  .IconMiddle {
+    @apply -mx-xs;
+  }
+  .IconEnd {
+    @apply -mr-xs;
   }
 }
 
