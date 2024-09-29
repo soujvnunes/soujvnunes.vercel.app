@@ -34,7 +34,7 @@ export default async function BusinessSocials() {
               social.name === "Medium" && "ButtonMedium",
             )}
           >
-            <Icon name={social.name} />
+            <Icon className="Icon IconMd IconMiddle" name={social.name} />
           </Link>
         );
       })}
