@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import BusinessSocials from "./BusinessSocials";
 import BusinessSocialsSkeleton from "./BusinessSocialsSkeleton";
+import Icon from "components/Icon";
 
 export default function Business() {
   return (
@@ -17,12 +18,13 @@ export default function Business() {
       </Suspense>
       {process.env.GDOCS_CV_SHARE && (
         <Link
-          className="Button ButtonMd ButtonMain"
+          className="Button ButtonMd ButtonMain ButtonFull"
           target="_blank"
           rel="noreferrer noopener"
           href={process.env.GDOCS_CV_SHARE}
         >
           View CV
+          <Icon name="Document" className="Icon IconMd IconEnd" />
         </Link>
       )}
     </section>
