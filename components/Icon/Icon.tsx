@@ -8,7 +8,6 @@ interface IconProps extends React.ReactComponentProps {
 
 export default async function Icon({
   name,
-  className,
   size = "md",
   title,
   children,
@@ -24,7 +23,6 @@ export default async function Icon({
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden={title ? undefined : "true"}
-      className={twMerge("Icon", size === "md" && "IconMd", className)}
       {...props}
     />
   );
