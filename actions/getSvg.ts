@@ -3,6 +3,7 @@ export type Svgs =
   | "Behance"
   | "BeproNetwork"
   | "Cross"
+  | "Document"
   | "GitHub"
   | "Language"
   | "LinkedIn"
