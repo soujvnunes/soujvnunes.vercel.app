@@ -18,6 +18,8 @@ export default async function BusinessSocials() {
       {socials?.map((social) => {
         const title = `Visit my ${social.name} profile`;
 
+        if (!social.href || !social.name) return;
+
         return (
           <Link
             target="_blank"
