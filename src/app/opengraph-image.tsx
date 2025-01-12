@@ -1,7 +1,7 @@
 import theme from "lib/theme";
 import { ImageResponse } from "next/og";
+import { resolveAtom } from "themizer";
 
-// TODO: remove it
 export const runtime = "edge";
 export const contentType = "image/png";
 export const alt = process.env.NEXT_PUBLIC_META_DESCRIPTION;
@@ -18,27 +18,27 @@ export default function Image() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          paddingLeft: theme.tokens.units[40],
-          paddingRight: theme.tokens.units[40],
+          paddingLeft: resolveAtom(theme.tokens.units[40]),
+          paddingRight: resolveAtom(theme.tokens.units[40]),
           width: "100%",
           height: "100%",
-          color: `rgb(${theme.tokens.palette.amber[50]})`,
-          backgroundImage: `linear-gradient(to bottom, rgb(${theme.tokens.palette.amber[900]}), rgb(${theme.tokens.palette.amber[950]}))`,
+          color: `rgb(${resolveAtom(theme.tokens.palette.amber[50])})`,
+          backgroundImage: `linear-gradient(to bottom, rgb(${resolveAtom(theme.tokens.palette.amber[900])}), rgb(${resolveAtom(theme.tokens.palette.amber[950])}))`,
         }}
       >
-        <strong style={{ fontSize: theme.tokens.units[64] }}>
+        <strong style={{ fontSize: resolveAtom(theme.tokens.units[64]) }}>
           sou
           <span
             style={{
               letterSpacing: "-.2em",
-              color: `rgb(${theme.tokens.palette.indigo[500]})`,
+              color: `rgb(${resolveAtom(theme.tokens.palette.indigo[500])})`,
             }}
           >
             j
           </span>
           <span
             style={{
-              color: `rgb(${theme.tokens.palette.amber[500]})`,
+              color: `rgb(${resolveAtom(theme.tokens.palette.amber[500])})`,
             }}
           >
             v
@@ -47,8 +47,8 @@ export default function Image() {
         </strong>
         <p
           style={{
-            fontSize: theme.tokens.units[40],
-            color: `rgb(${theme.tokens.palette.amber[50]}/${theme.tokens.alphas.tertiary})`,
+            fontSize: resolveAtom(theme.tokens.units[40]),
+            color: `rgb(${resolveAtom(theme.tokens.palette.amber[50])}/${resolveAtom(theme.tokens.alphas.tertiary)})`,
           }}
         >
           Design Engineer
