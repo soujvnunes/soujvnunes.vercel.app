@@ -19,13 +19,9 @@ export default function buildData<O extends object = object>(
         return {
           ...cells,
           [key]:
-            value === ""
-              ? /**
-                 * Since a value could be undefined, I can't
-                 * predict which one'd actually be. So, I assert
-                 * each value as partial (Partial<O>)
-                 */
-                undefined
+            // Asserts each value as partial (Partial<O>) as they're unpredictable.
+            !value
+              ? undefined
               : Number.isNaN(numericValue)
                 ? value
                 : numericValue,
