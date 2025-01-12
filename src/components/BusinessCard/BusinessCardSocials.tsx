@@ -1,7 +1,7 @@
 import getData from "actions/getData";
-import Icon from "components/Icon";
+import Icon from "components/Icon/Icon";
+import theme from "lib/theme";
 import Link from "next/link";
-import { twMerge } from "tailwind-merge";
 
 type Social = {
   name: "LinkedIn" | "GitHub" | "Behance" | "Medium";
@@ -14,7 +14,7 @@ export default async function BusinessSocials() {
   });
 
   return (
-    <aside className="flex space-x-sm">
+    <aside id="BusinessSocials" className="aside flex space-x-sm">
       {socials?.map((social) => {
         const title = `Visit my ${social.name} profile`;
 
@@ -28,15 +28,15 @@ export default async function BusinessSocials() {
             href={social.href}
             aria-label={title}
             title={title}
-            className={twMerge(
+            /*  className={twMerge(
               "Button ButtonMd",
               social.name === "Behance" && "ButtonBehance",
               social.name === "LinkedIn" && "ButtonLinkedIn",
               social.name === "GitHub" && "ButtonGitHub",
               social.name === "Medium" && "ButtonMedium",
-            )}
+            )} */
           >
-            <Icon className="Icon IconMd IconMiddle" name={social.name} />
+            <Icon size="md" name={social.name} />
           </Link>
         );
       })}
