@@ -1,3 +1,7 @@
+import rgb from "lib/rgb";
+import theme from "lib/theme";
+import { resolveAtom } from "themizer";
+
 export default function manifest() {
   return {
     name: process.env.NEXT_PUBLIC_META_TITLE,
@@ -5,8 +9,8 @@ export default function manifest() {
     description: process.env.NEXT_PUBLIC_META_DESCRIPTION,
     start_url: "/",
     display: "standalone",
-    background_color: "#100A01",
-    theme_color: "#100A01",
+    background_color: `rgb(${resolveAtom(theme.tokens.palette.amber[950])})`,
+    theme_color: `rgb(${resolveAtom(theme.tokens.palette.amber[950])})`,
     icons: [
       {
         src: "/favicon.ico",

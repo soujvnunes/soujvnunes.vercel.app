@@ -1,14 +1,22 @@
-import "./global.css";
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "components/Footer";
-import Background from "components/Background";
+import Footer from "components/Footer/Footer";
+import theme from "lib/theme";
+import "./global.css";
+import { resolveAtom } from "themizer";
+import AppBackground from "components/AppBackground";
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#100A01" },
-    { media: "(prefers-color-scheme: light)", color: "#FFFBF4" },
+    {
+      media: "(prefers-color-scheme: dark)",
+      color: `rgb(${resolveAtom(theme.tokens.palette.amber[950])})`,
+    },
+    {
+      media: "(prefers-color-scheme: light)",
+      color: `rgb(${resolveAtom(theme.tokens.palette.amber[50])})`,
+    },
   ],
 };
 export const metadata: Metadata = {
@@ -39,18 +47,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: React.PropsWithChildren) {
+export default function AppLayout({ children }: React.PropsWithChildren) {
   return (
     <html
       lang="en"
-      className="TypographyPrimary h-full bg-amber-950 antialiased"
+      className="h-full bg-background text-body text-foreground antialiased"
     >
       <body className="flex h-full flex-col">
         <main className="m-auto">{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />
-        <Background />
+        <AppBackground />
       </body>
     </html>
   );
