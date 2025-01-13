@@ -1,4 +1,4 @@
-export default function AppNotFound() {
+export default function notFound() {
   return (
     <section className="text-center">
       <h1 className="mb-8 mb-md text-title font-semibold tracking-tighter text-error">

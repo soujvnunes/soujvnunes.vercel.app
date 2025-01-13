@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "components/Footer/Footer";
 import theme from "lib/theme";
 import "./global.css";
 import { resolveAtom } from "themizer";
+import Footer from "components/Footer";
 import AppBackground from "components/AppBackground";
 
 export const viewport: Viewport = {
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function AppLayout({ children }: React.PropsWithChildren) {
+export default function layout({ children }: React.PropsWithChildren) {
   return (
     <html
       lang="en"

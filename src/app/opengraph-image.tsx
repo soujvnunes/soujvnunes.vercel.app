@@ -10,7 +10,7 @@ export const size = {
   height: 630,
 };
 
-export default function Image() {
+export default function openGraphImage() {
   return new ImageResponse(
     (
       <div

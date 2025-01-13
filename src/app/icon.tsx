@@ -6,7 +6,7 @@ import { resolveAtom } from "themizer";
 export const contentType = "image/png";
 export const size = { width: 32, height: 32 };
 
-export default function Icon() {
+export default function icon() {
   return new ImageResponse(
     (
       <span
