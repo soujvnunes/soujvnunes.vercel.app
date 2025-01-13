@@ -1,5 +1,5 @@
 import test, { expect } from "@playwright/test";
-import buildData from "lib/buildData";
+import formatRawData from "actions/getData/formatRawData";
 
 test("should build data correctly", async () => {
   type Data = {
@@ -13,7 +13,7 @@ test("should build data correctly", async () => {
     ["1", "2024"],
     ["2", "", "https://www.com.br"],
   ];
-  const data = buildData<Data>(rawData);
+  const data = formatRawData<Data>(rawData);
 
   expect(data).toEqual([
     {
