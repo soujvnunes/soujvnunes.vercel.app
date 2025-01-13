@@ -1,13 +1,4 @@
 module.exports = {
-  // ref: https://github.com/vercel/next.js/discussions/52690?sort=new#discussioncomment-8235460
-  webpack: (config) => {
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ["@svgr/webpack", "url-loader"],
-    });
-
-    return config;
-  },
   images: {
     remotePatterns: [
       {
