@@ -89,8 +89,8 @@ export interface IconPaths {
   name: keyof typeof iconPaths;
 }
 
-export default function getIconPaths(
-  paths: IconPaths,
-): { d: string; fill?: string }[] {
-  return iconPaths[paths.name];
+type IconPath = Pick<React.JSX.IntrinsicElements["path"], "className" | "d">;
+
+export default function getIconPaths(paths: IconPaths) {
+  return iconPaths[paths.name] as IconPath[];
 }

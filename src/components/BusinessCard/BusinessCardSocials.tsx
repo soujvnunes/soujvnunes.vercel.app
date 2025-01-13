@@ -1,6 +1,4 @@
-import getData from "actions/getData";
-import Icon from "components/Icon/Icon";
-import theme from "lib/theme";
+import Icon from "components/Icon";
 import Link from "next/link";
 
 type Social = {
@@ -9,6 +7,7 @@ type Social = {
 };
 
 export default async function BusinessSocials() {
+  const { default: getData } = await import("actions/getData");
   const socials = await getData<Social>({
     id: process.env.GAPI_SHEET_ID_SOCIALS,
   });
